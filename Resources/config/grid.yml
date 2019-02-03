@@ -1,0 +1,36 @@
+services:
+    dtc_grid.renderer.factory:
+        public: true
+        class: Dtc\GridBundle\Grid\Renderer\RendererFactory
+        arguments:
+            - "@router"
+            -
+                theme.css: '%dtc_grid.theme.css%'
+                theme.js: '%dtc_grid.theme.js%'
+                page_div_style: '%dtc_grid.page_div_style%'
+                jquery: '%dtc_grid.jquery%'
+                purl: '%dtc_grid.purl%'
+                jq_grid.css: '%dtc_grid.jq_grid.css%'
+                jq_grid.js: '%dtc_grid.jq_grid.js%'
+                datatables.css: '%dtc_grid.datatables.css%'
+                datatables.js: '%dtc_grid.datatables.js%'
+                datatables.class: '%dtc_grid.datatables.class%'
+    dtc_grid.manager.source:
+        public: true
+        class: Dtc\GridBundle\Manager\GridSourceManager
+        arguments:
+            - "@annotation_reader"
+            - "%kernel.cache_dir%"
+            - "%kernel.debug%"
+    dtc_grid.twig.extension:
+        class: Dtc\GridBundle\Twig\Extension\TwigExtension
+        tags:
+            - { name: twig.extension }
+    dtc_grid.command.source.list:
+        class: Dtc\GridBundle\Command\SourceListCommand
+        tags:
+            - { name: 'console.command' }
+    dtc_grid.command.source.generate:
+        class: Dtc\GridBundle\Command\GenerateGridSourceCommand
+        tags:
+            - { name: 'console.command' }
