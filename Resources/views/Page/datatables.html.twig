@@ -1,0 +1,20 @@
+{% extends '@DtcGrid/layout_base_jquery.html.twig' %}
+
+{% block dtc_grid_stylesheets %}
+    {% for stylesheet in dtc_grid_datatables_css %}
+        <link rel="stylesheet" href="{{ stylesheet }}" />
+    {% endfor %}
+    {% for stylesheet in dtc_grid_local_css %}
+       <link rel="stylesheet" href="/bundles/dtcgrid/{{ stylesheet }}" />
+    {% endfor %}
+{% endblock %}
+
+{% block dtc_grid_javascripts %}
+    {{ parent() }}
+    {% for javascript in dtc_grid_datatables_js %}
+        <script src="{{ javascript }}"></script>
+    {% endfor %}
+    {% for javascript in dtc_grid_local_js %}
+        <script src="/bundles/dtcgrid/{{ javascript }}"></script>
+    {% endfor %}
+{% endblock %}
