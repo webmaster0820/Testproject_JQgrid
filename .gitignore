@@ -1,0 +1,29 @@
+# emacs
+*~
+\#*
+\#*\#
+auto-save-list
+
+# vim
+*.swp
+
+# composer
+vendor
+composer.lock
+
+# bin
+bin/phpunit
+bin/php-cs-fixer
+
+# PHP CS Fixer
+.php_cs.cache
+
+# Jetbrains
+.idea
+
+# Mac
+.DS_Store
+
+#
+bin
+.php_cs.cache
